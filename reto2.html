@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <form id="search-form">
+        <input type="text" id="search-query" name="q" placeholder="Buscar en Google Scholar">
+        <button type="submit">Buscar</button>
+      </form>
+
+      <ul id="search-results"></ul>
+</body>
+<script>
+    const form = document.querySelector('#search-form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+  
+      const query = document.querySelector('#search-query').value;
+      const apiKey = '8e3791e84d353f8461ef13177156611a53c087d9dfa2cdbb9af9566b9856c7d2';
+  
+      const xhr = new XMLHttpRequest();
+      xhr.onload = () => {
+        const response = JSON.parse(xhr.responseText);
+        console.log(response);
+      };
+  
+      const url = `https://serpapi.com/search.json?engine=google_scholar&q=${encodeURIComponent(query)}&api_key=${apiKey}`;
+      xhr.open('GET', url);
+      xhr.send();
+    });
+
+    
+  </script>
+<script id="search-result-template" type="text/x-handlebars-template">
+    {{#each results}}
+    <li>
+      <h3>{{title}}</h3>
+     
+    </li>
+    {{/each}}
+  </script>
+  
+
+  
+</html>
