@@ -1,5 +1,4 @@
 package org.basic.querys;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,13 +13,7 @@ public class MainID {
         String apiKey = "KeyApi"; 
         String mautors = "";
         String hl = "es";
-        int numResults = 10;
-
-
-
-
-
-        // https://serpapi.com/search.json?engine=google_scholar_profiles&mauthors=Albert&hl=en&api_key=123abc
+        int numResults = ;
 
         String requestUrl = url + "&mautors=" + mautors + "&hl=" + hl + "&num=" + numResults + "&api_key=" + apiKey;
 
