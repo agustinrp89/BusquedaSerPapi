@@ -11,20 +11,17 @@ public class Main {
         HttpClient client = HttpClient.newHttpClient();
         String url = "https://serpapi.com/search.json?engine=google_scholar";
         String apiKey = "keyapi"; 
-        String query = "coffee";
-        String hl = "en";
-        int numResults = 10;
+        String query = "";
         String autor = "";
-        
-
-        // if a value is provided for author
+        String hl = "";
+        int numResults = ;
+       
+              
         if (args.length > 0) {
             autor = "&author=" + args[0];
         }
 
-       
-
-       
+              
         String requestUrl = url + "&q=" + query + "&hl=" + hl + "&num=" + numResults + autor +  "&api_key=" + apiKey;
 
         HttpRequest request = HttpRequest.newBuilder().uri(new URI(requestUrl)).build();
