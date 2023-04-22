@@ -1,9 +1,10 @@
 package com.equipo.view;
+import com.equipo.controller.ControladorAutor;
+import com.equipo.model.Autor;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
-import com.equipo.controller.ControladorAutor;
-import com.equipo.model.Autor;
+
 
 public class Vista {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
