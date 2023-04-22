@@ -1,7 +1,8 @@
 package com.equipo.controller;
+import com.equipo.model.Autor;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import com.equipo.model.Autor;
+
 
 public class ControladorAutor {
     private Autor autor;
