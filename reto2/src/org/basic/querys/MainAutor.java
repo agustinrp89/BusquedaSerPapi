@@ -59,7 +59,7 @@ public class MainAutor {
 		con.miConexion();
 		conn=DriverManager.getConnection(cadena,user,pass);
 		st=conn.createStatement();
-		 String sql = "INSERT INTO top10 (nombre, afiliaciones, url) VALUES ('"+name+"', '"+affiliations+"',  '"+google_scholar_author_url+"')";
+		 String sql = "INSERT INTO top10 (name, afiliation,url) VALUES ('"+name+"', '"+affiliations+"',  '"+google_scholar_author_url+"')";
          st.executeUpdate(sql);
          
     } catch (SQLException e) {
