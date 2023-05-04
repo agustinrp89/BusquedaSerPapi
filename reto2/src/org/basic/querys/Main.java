@@ -10,9 +10,9 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         HttpClient client = HttpClient.newHttpClient();
         String url = "https://serpapi.com/search.json?engine=google_scholar";
-        String apiKey = "keyapi"; 
-        String query = "coffee";
-        String hl = "en";
+        String apiKey = ""; 
+        String query = "";
+        String hl = "";
         int numResults = 10;
         String autor = "";
         

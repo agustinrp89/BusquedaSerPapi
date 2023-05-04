@@ -7,6 +7,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.URISyntaxException;
 import com.equipo.model.Autor;
+import com.equipo.mysql.conexion;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -29,7 +31,7 @@ public class ControladorAutor {
 
         String url = "https://serpapi.com/search.json?engine=google_scholar_author";
         String apiKey = "8e3791e84d353f8461ef13177156611a53c087d9dfa2cdbb9af9566b9856c7d2";
-        int numResults = 5;
+        int numResults = 1;
     
         String requestUrl = url + "&author_id=" + authorId + "&hl=" + language + "&num=" + numResults + "&api_key=" + apiKey;
     
@@ -49,20 +51,19 @@ public class ControladorAutor {
     }
     
     	private void insertAuthorIntoDatabase(Autor author) {
-        String DB_URL = "jdbc:mysql://localhost:3306/authorsdata";
-        String USER = "root";
-        String PASS = "";
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+    		conexion con=new conexion();
+    		con.miConexion();
+    		String bd="top10";
+    		String user="root";
+    		String pass="cristian26.";
+        try (Connection conn = DriverManager.getConnection(bd, user, pass);
              Statement stmt = conn.createStatement()) {
-            // Execute the SQL query
-            System.out.println("Inserting records into the table...");
-            String sql = "INSERT INTO authors (nombre, afiliaciones, email, url) VALUES ('" +
+             String base = "INSERT INTO authors (name, afiliation,url) VALUES ('" +
                     author.getName() + "', '" +
                     author.getAffiliations() + "', '" +                   
                     author.getGoogleScholarAuthorUrl() + "')";
-            stmt.executeUpdate(sql);
-
-            System.out.println("Inserted records into the table...");
+            stmt.executeUpdate(base);
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
