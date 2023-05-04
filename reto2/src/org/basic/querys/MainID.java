@@ -1,4 +1,5 @@
 package org.basic.querys;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -13,7 +14,13 @@ public class MainID {
         String apiKey = "KeyApi"; 
         String mautors = "";
         String hl = "es";
-        int numResults = ;
+        int numResults = 10;
+
+
+
+
+
+     
 
         String requestUrl = url + "&mautors=" + mautors + "&hl=" + hl + "&num=" + numResults + "&api_key=" + apiKey;
 

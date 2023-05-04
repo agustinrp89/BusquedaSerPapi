@@ -1,10 +1,10 @@
 package com.equipo.view;
-import com.equipo.controller.ControladorAutor;
-import com.equipo.model.Autor;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
-
+import com.equipo.controller.ControladorAutor;
+import com.equipo.model.Autor;
+import com.equipo.mysql.conexion;
 
 public class Vista {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
@@ -18,15 +18,10 @@ public class Vista {
         System.out.print("Enter number of results: ");
         int numResults = scanner.nextInt();
 
-        String url = "https://serpapi.com/search.json?engine=google_scholar_author";
-
-        
-        String searchUrl = url + "&hl=" + hl + "&api_key=" + apiKey;
-
-        Autor autor = new Autor(author_id, apiKey, hl, numResults, searchUrl);
-        ControladorAutor controller = new ControladorAutor(autor);
-
-        String searchResult = controller.performSearch();
-        System.out.println(searchResult);
+    	conexion con=new conexion();
+		con.miConexion();
+		
+        ControladorAutor ControladorAutor = new ControladorAutor(author_id, hl);
+        ControladorAutor.insertAuthor();
     }
 }
